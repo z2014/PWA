@@ -26,7 +26,7 @@ let baseConfig = {
     // development-level config
     dev: {
         host: '127.0.0.1',
-        port: 8080
+        port: 7000
     }
 };
 

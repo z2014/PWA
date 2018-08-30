@@ -1,19 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
-    "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
-    "lib": ["dom", "es2015", "es2015.promise"], /* Specify library files to be included in the compilation. */
-    "jsx": "react",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
-    "sourceMap": true,                     /* Generates corresponding '.map' file. */
-    "strict": true,                           /* Enable all strict type-checking options. */
-    "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
-    "baseUrl": "src",                       /* Base directory to resolve non-absolute module names. */
-    "paths": {
-      "@/*": ["./*"],
-    },                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
-    "esModuleInterop": true                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    "module": "es6", // 使用 ES2015 模块
+    "target": "es6", // 编译成 ES2015 (Babel 将做剩下的事情)
+    "allowSyntheticDefaultImports": true, // 看下面
+    "baseUrl": "src", // 可以相对这个目录 import 文件
+    "sourceMap": true, // 使 TypeScript 生成 sourcemaps
+    "outDir": "ts-build", // 构建输出目录 (因为我们大部分时间都在使用 Webpack，所以不太相关)
+    "jsx": "preserve", // 开启 JSX 模式, 但是 "preserve" 告诉 TypeScript 不要转换它(我们将使用 Babel)
+    "strict": true,
   },
-  "include": [
-    "./src/**/*"
+  "exclude": [
+    "node_modules" // 这个目录下的代码不会被 typescript 处理
   ]
 }

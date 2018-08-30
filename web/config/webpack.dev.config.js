@@ -1,12 +1,12 @@
 import merge from 'webpack-merge';
-import webpackBaseConfig from './webpack.base.config';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
 import baseConfig from './base.config';
-import { CheckerPlugin } from 'awesome-typescript-loader';
+import webpackBaseConfig from './webpack.base.config';
 
-let webpackDevConfig = merge(webpackBaseConfig, {
+
+const webpackDevConfig = merge(webpackBaseConfig, {
     mode: 'development',
     devtool: 'eval-source-map',
     output: {

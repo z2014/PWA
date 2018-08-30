@@ -1,7 +1,6 @@
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from 'path';
 
-let webpackBaseConfig = {
+const webpackBaseConfig = {
     entry: {
         main: path.join(__dirname, '../src/index'),
         vendor: ['react', 'react-dom']
@@ -20,7 +19,7 @@ let webpackBaseConfig = {
         rules: [
             {
                 test: /\.tsx?$/,
-                loader: 'ts-loader'
+                loader: ['babel-loader', 'ts-loader']
             },
             {
                 test: /\.(js|jsx)$/,
@@ -34,7 +33,7 @@ let webpackBaseConfig = {
                     plugins: [
                         '@babel/plugin-transform-runtime',
                         '@babel/plugin-proposal-class-properties',
-                        "@babel/plugin-proposal-function-bind"
+                        '@babel/plugin-proposal-function-bind'
                     ]
                 }
             },
